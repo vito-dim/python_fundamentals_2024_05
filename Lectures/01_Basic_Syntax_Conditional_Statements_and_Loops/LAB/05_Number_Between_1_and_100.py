@@ -1,0 +1,22 @@
+while True:
+    current_number = float(input())
+
+    if 1 <= current_number <= 100:
+        print(f'The number {current_number} is between 1 and 100')
+        break
+
+# version 2
+# number = float(input())
+#
+# while number < 1 or number > 100:
+#     number = float(input())
+#
+# print(f'The number {number} is between 1 and 100')
+
+# version 3
+# number = float(input())
+#
+# while 1 >= number <= 100:
+#     number = float(input())
+#
+# print(f'The number {number} is between 1 and 100')
