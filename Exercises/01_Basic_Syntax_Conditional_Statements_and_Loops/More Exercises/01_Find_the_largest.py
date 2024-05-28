@@ -1,7 +1,8 @@
-number = input()
-number_digits_count = len(str(number))
-digits_list = []
+number_string = str(input())
+sorted_string = sorted(number_string, reverse=True)
 max_number = ''
 
-for digit in range(number_digits_count):
-    digits_list.append(number[digit])
+for digit in sorted_string:
+    max_number += digit
+
+print(max_number)
