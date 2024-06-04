@@ -14,11 +14,11 @@ print(year)
 #
 # print(happy_year)
 
-# 66 / 100
-# start_year = int(input())
-# happy_year = start_year
-# year_is_unique = False
 
+# start_year = int(input())
+# happy_year = start_year + 1
+# year_is_unique = False
+#
 # while not year_is_unique:
 #     for digit in str(happy_year):
 #         if str(happy_year).count(digit) > 1:
@@ -30,9 +30,8 @@ print(year)
 #
 # print(happy_year)
 
-# 66 / 100
 # start_year = int(input())
-# happy_year = start_year
+# happy_year = start_year + 1
 # year_is_unique = False
 #
 # while True:
