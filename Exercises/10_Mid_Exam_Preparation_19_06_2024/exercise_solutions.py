@@ -13,7 +13,7 @@ while number_of_students > 0:
         continue
     number_of_students -= total_efficiency_per_hour
 print(f"Time needed: {total_time}h.")
- 
+
 #1.1
  
 first_employee_per_hour = int(input())
