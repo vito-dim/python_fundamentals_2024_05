@@ -6,53 +6,22 @@ items_collected = 0
 command = input()
 while command != 'Adventure over':
 
-    if 'Step Backward' in command:
-        command_attributes = command.split('$')
-        start_index = int(command_attributes[1])
-        steps = int(command_attributes[2])
+    if 'Step' in command:
+        step_type, start_index, steps = command.split('$')
+        current_index = 0
+        if int(start_index) not in range(len(grid_list)):
+            command = input()
+            continue
 
-        if start_index in range(len(grid_list)):
-            grid_value = 0
-            grid_index = 0
+        if 'Backward' in step_type:
+            current_index = (int(start_index) - int(steps)) % len(grid_list)
+        elif 'Forward' in step_type:
+            current_index = (int(start_index) + int(steps)) % len(grid_list)
 
-            while True:
-                if steps == 0:
-                    break
+        items_collected += grid_list[current_index]
+        grid_list[current_index] = 0
 
-                for index in range(len(grid_list) - 1, start_index - 1, -1):
-                    if steps == 0:
-                        break
-                    steps -= 1
-                    grid_value = grid_list[index]
-                    grid_index = index
-
-            items_collected += grid_value
-            grid_list[grid_index] = 0
-
-    elif 'Step Forward' in command:
-        command_attributes = command.split('$')
-        start_index = int(command_attributes[1])
-        steps = int(command_attributes[2])
-
-        if start_index in range(len(grid_list)):
-            grid_value = 0
-            grid_index = 0
-
-            while True:
-                if steps == 0:
-                    break
-
-                for index in range(start_index, len(grid_list)):
-                    if steps == 0:
-                        break
-                    steps -= 1
-                    grid_value = grid_list[index]
-                    grid_index = index
-
-            items_collected += grid_value
-            grid_list[grid_index] = 0
-
-    elif 'Double ' in command:
+    elif 'Double' in command:
         current_index = int(command.split()[1])
         if current_index in range(len(grid_list)):
             grid_list[current_index] *= 2
