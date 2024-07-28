@@ -1,21 +1,38 @@
-student_information = []
+courses = {}
+data = input()
+while ':' in data:
+    student_name, student_id, course = data.split(':')
+    if course not in courses:
+        courses[course] = {student_name: student_id}
+    else:
+        courses[course][student_name] = student_id
+    data = input()
 
-command = input()
-while ':' in command:
-    current_command = command.split(':')
-    current_name = current_command[0]
-    current_id = int(current_command[1])
-    current_course = current_command[2]
-    student_information.append({"name": current_name, "ID": current_id, "course": current_course})
+course_taken = data.replace('_', ' ')
+students = courses[course_taken]
 
-    command = input()
+for name, _id in students.items():
+    print(f"{name} - {_id}")
 
-search_course = [letter if '_' not in letter else ' ' for letter in command]
-search_course_str = ''.join(search_course)
-
-for student in student_information:
-    if search_course_str in student['course']:
-        print(f"{student['name']} - {student['ID']}")
+# data = input()
+# student_information = {}
+#
+# while ':' in data:
+#     student_name, student_id, student_course = data.split(':')
+#     student_id = int(student_id)
+#
+#     if student_course not in student_information:
+#         student_information[student_course] = {}
+#     student_information[student_course][student_name] = student_id
+#
+#     data = input()
+#
+# # course_taken = ' '.join(data.split('_'))
+# course_taken = data.replace('_', ' ')
+#
+# if course_taken in student_information:
+#     for name, student_id in student_information[course_taken].items():
+#         print(f"{name} - {student_id}")
 
 # student_information = []
 #

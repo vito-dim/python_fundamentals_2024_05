@@ -1,3 +1,15 @@
+# words_count = int(input())
+# synonyms = {}
+# for i in range(words_count):
+#     word = input()
+#     synonym = input()
+#     if word not in synonyms:
+#         synonyms[word] = []
+#     synonyms[word].append(synonym)
+#
+# for word in synonyms:
+#     print(f"{word} - {', '.join(synonyms[word])}")
+#
 words_count = int(input())
 synonyms = {}
 for i in range(words_count):
@@ -7,5 +19,5 @@ for i in range(words_count):
         synonyms[word] = []
     synonyms[word].append(synonym)
 
-for word in synonyms:
-    print(f"{word} - {', '.join(synonyms[word])}")
+for word, synonyms in synonyms.items():
+    print(f"{word} - {', '.join(synonyms)}")
